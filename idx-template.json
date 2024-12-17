@@ -1,0 +1,6 @@
+{
+  "name": "Blank Web Component",
+  "description": "A template for building Native Web Components with Vanilla JS.",
+  "icon": "web-component-icon.png",
+  "parameters": {}
+}
