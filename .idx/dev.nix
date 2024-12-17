@@ -1,21 +1,21 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs, ... }: {
+  # Which nixpkgs channel to use.
+  channel = "stable-23.11"; # or "unstable"
 
-{
-  # Specify the Nix channel to use (optional, but recommended)
-  channel = "stable-24.05"; 
-
-  # Install essential packages
+  # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs  # For running JavaScript tools
+    pkgs.nodejs
   ];
 
-  # Configure VS Code extensions
-  idx.extensions = [
-    "monokai.theme-monokai-pro-vscode" 
-    "esbenp.prettier-vscode"           
-    "sgtpep.prettier-plugin-html-template-literals" 
-    "begaroth.web-component-formatter"  
-    "naumovs.color-highlight"          
-    "nicolasparada.innerhtm"           
-  ];
+  # Sets environment variables in the workspace
+  env = {
+    idx = {
+      # Search for the extensions you want on https://open-vsx.org/ and use "publisher.id"
+      extensions = [
+        "monokai.theme-monokai-pro-vscode"
+        "esbenp.prettier-vscode"
+        "naumovs.color-highlight" # Add Color Highlight
+      ];
+    }
+  };
 }
